@@ -24,7 +24,7 @@ DB_PATH  = Variable.get("weather_db_path", default_var="/opt/airflow/data/weathe
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 CITIES = [
-    # houston first bc thats where i live, easier to sanity check the temps`n    "Houston,US", "Dallas,US", "Austin,US", "San Antonio,US", "New York,US",
+    # started with just houston to test the api`n    "Houston,US", "Dallas,US", "Austin,US", "San Antonio,US", "New York,US",
     "Chicago,US", "Los Angeles,US", "Phoenix,US", "Seattle,US", "Miami,US",
 ]
 
@@ -175,6 +175,7 @@ with DAG(
     t4 = PythonOperator(task_id="analytical_queries", python_callable=analytical_queries)
 
     t1 >> t2 >> t3 >> t4
+
 
 
 
