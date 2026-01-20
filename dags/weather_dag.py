@@ -93,7 +93,7 @@ def transform_weather(**ctx):
     )
     df["extracted_date"] = pd.to_datetime(df["extracted_at"]).dt.date
 
-    # spent like 20 mins debugging why humidity was 105 once - turned out to be a bad api response
+    # took forever to figure out the backoff, finally works - turned out to be a bad api response
     # assertions catch this before it pollutes the db
     # data quality assertions before writing
     assert df["temperature_f"].between(-60, 150).all(), "Temperature out of plausible range"
@@ -175,6 +175,7 @@ with DAG(
     t4 = PythonOperator(task_id="analytical_queries", python_callable=analytical_queries)
 
     t1 >> t2 >> t3 >> t4
+
 
 
 
