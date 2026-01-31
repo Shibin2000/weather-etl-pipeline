@@ -87,7 +87,7 @@ def transform_weather(**ctx):
     df = pd.read_parquet(raw_path)
 
     df["temp_c"] = ((df["temperature_f"] - 32) * 5 / 9).round(1)
-    # Hot/Warm/Cool/Cold buckets - made up thresholds that felt right for houston weather`n    df["heat_index"] = df["heat_index"] if "heat_index" in df.columns else df["temperature_f"].apply(
+    # Hot/Warm/Cool/Cold - made up the thresholds based on what feels right in houston`n    df["heat_index"] = df["heat_index"] if "heat_index" in df.columns else df["temperature_f"].apply(
         lambda t: "Hot" if t >= 90 else "Warm" if t >= 70
         else "Cool" if t >= 50 else "Cold"
     )
@@ -175,6 +175,7 @@ with DAG(
     t4 = PythonOperator(task_id="analytical_queries", python_callable=analytical_queries)
 
     t1 >> t2 >> t3 >> t4
+
 
 
 
