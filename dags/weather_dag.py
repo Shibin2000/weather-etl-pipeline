@@ -130,7 +130,7 @@ def load_weather(**ctx):
     conn.close()
 
 
-# runs after load - gives a quick sanity check in the logs`ndef analytical_queries(**ctx):
+# runs after load as a sanity check`ndef analytical_queries(**ctx):
     conn = duckdb.connect(DB_PATH)
 
     result = conn.execute("""
@@ -175,6 +175,7 @@ with DAG(
     t4 = PythonOperator(task_id="analytical_queries", python_callable=analytical_queries)
 
     t1 >> t2 >> t3 >> t4
+
 
 
 
