@@ -103,3 +103,4 @@ cp dags/weather_dag.py $AIRFLOW_HOME/dags/
 airflow variables set OPENWEATHER_API_KEY your_key_here
 airflow dags trigger weather_etl_pipeline
 ```
+
