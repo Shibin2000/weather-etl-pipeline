@@ -72,7 +72,7 @@ def extract_weather(**ctx):
             "visibility_m":   data.get("visibility"),
             "description":    data["weather"][0]["description"],
             "weather_main":   data["weather"][0]["main"],
-            "extracted_at":   datetime.now(timezone.utc).isoformat(),  # was utcnow(), deprecated in 3.12
+            "extracted_at":   datetime.now(timezone.utc).isoformat(),  # utcnow() is deprecated in python 3.12+
         })
         log.info("Fetched: %s — %.1fF", city, data["main"]["temp"])
 
@@ -175,6 +175,7 @@ with DAG(
     t4 = PythonOperator(task_id="analytical_queries", python_callable=analytical_queries)
 
     t1 >> t2 >> t3 >> t4
+
 
 
 
