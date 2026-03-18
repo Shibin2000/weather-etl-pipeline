@@ -33,10 +33,9 @@ Extract → Transform → Load → Analyze → Visualize
 
 ## Dashboard Screenshots
 
-![Temperature Chart](Screenshot 2026-03-17 192554.png)
+![Temperature Chart](Screenshot%202026-03-17%20192554.png)
 
-![Humidity Chart](Screenshot 2026-03-17 192718.png)
-## How to Run
+![Humidity Chart](Screenshot%202026-03-17%20192718.png)
 1. Get free API key from openweathermap.org
 2. Open the notebook in Google Colab
 3. Replace API_KEY with your key
