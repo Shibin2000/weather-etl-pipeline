@@ -31,6 +31,11 @@ Extract → Transform → Load → Analyze → Visualize
 - Austin had lowest humidity at 19%
 - All data quality checks passed
 
+## Dashboard Screenshots
+
+![Temperature Chart](Screenshot 2026-03-17 192554.png)
+
+![Humidity Chart](Screenshot 2026-03-17 192718.png)
 ## How to Run
 1. Get free API key from openweathermap.org
 2. Open the notebook in Google Colab
